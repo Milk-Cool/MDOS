@@ -53,4 +53,5 @@ dkms.conf
 
 # Custom entries
 iso/boot/*
+iso/res/*
 *.iso

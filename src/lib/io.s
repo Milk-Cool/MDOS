@@ -2,12 +2,12 @@ global outb
 global inb
 
 outb:
-    mov al, [esp + 8]
-    mov dx, [esp + 4]
+    mov al, sil
+    mov dx, di
     out dx, al
     ret
 
 inb:
-    mov dx, [esp + 4]
+    mov dx, di
     in  al, dx
     ret
