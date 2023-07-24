@@ -50,7 +50,7 @@ src/%.o: src/%.c
 		-Wall -Wextra -Werror -Isrc/lib/ -Isrc/drivers/ -c $< -o $@
 
 clean:
-	rm -rf $(OBJECTS) $(ISOFILE) $(KERNELFILE) limine/
+	rm -rf $(OBJECTS) $(ISOFILE) $(KERNELFILE) limine/ $(RESDEST)$(RESSRC)
 clean-limine:
 	rm -rf $(LIMINE_PATH_BIOS) $(LIMINE_PATH_UEFI) $(LIMINE_PATH_BIOSSYS)
 clean-all: | clean clean-limine
