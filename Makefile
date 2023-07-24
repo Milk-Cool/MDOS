@@ -11,8 +11,7 @@ LIMINE_PATH_RELATIVE_UEFI = boot/limine_uefi.bin
 LIMINE_PATH_UEFI = $(LIMINE_PATH_PREFIX)$(LIMINE_PATH_RELATIVE_UEFI)
 RESSRC = res/
 RESDEST = iso/
-#SOURCES = $(shell ls src/*.s src/*.c)
-SOURCES = $(shell ls src/*.c)
+SOURCES = $(shell find src/ -name "*.c" -o -name "*.s")
 OBJECTS = ${subst .c,.o,${subst .s,.o,$(SOURCES)}}
 ISOFILE = mdos.iso
 
@@ -48,7 +47,7 @@ src/%.o: src/%.s
 	nasm -f elf64 $< -o $@
 src/%.o: src/%.c
 	gcc -m64 -fno-builtin -fno-stack-protector \
-		-Wall -Wextra -Werror -Isrc/lib/ -c $< -o $@
+		-Wall -Wextra -Werror -Isrc/lib/ -Isrc/drivers/ -c $< -o $@
 
 clean:
 	rm -rf $(OBJECTS) $(ISOFILE) $(KERNELFILE) limine/

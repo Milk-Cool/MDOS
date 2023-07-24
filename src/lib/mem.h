@@ -1,6 +1,9 @@
 // https://github.com/limine-bootloader/limine-barebones/blob/trunk/kernel/kernel.c
 // TODO: split into mem.c and mem.h
 
+#ifndef MEM_H_
+#define MEM_H_
+
 #include <stddef.h>
 #include <stdint.h>
 
@@ -60,3 +63,5 @@ int memcmp(const void *s1, const void *s2, size_t n) {
 
     return 0;
 }
+
+#endif

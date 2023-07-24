@@ -5,6 +5,9 @@
 // the compiler does not optimise them away, so, usually, they should
 // be made volatile or equivalent.
 
+#ifndef GRAPHICS_H_
+#define GRAPHICS_H_
+
 #include <stddef.h>
 #include <stdbool.h>
 #include <limine.h>
@@ -24,3 +27,5 @@ bool ensureFramebuffer() {
 struct limine_framebuffer* getFramebuffer() {
     return framebuffer_request.response->framebuffers[0];
 }
+
+#endif

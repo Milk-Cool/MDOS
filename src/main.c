@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <stddef.h>
 
+#include <iso9660.h>
+
 // The following will be our kernel's entry point.
 // If renaming _start() to something else, make sure to change the
 // linker script accordingly.
