@@ -4,6 +4,8 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+void abort();
+
 void assert(bool expr) {
     if(!expr) abort();
 }

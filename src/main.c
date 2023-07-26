@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include <stddef.h>
 
-#include <iso9660.h>
+#include <ata.h>
+#include <mdos.h>
 
 // The following will be our kernel's entry point.
 // If renaming _start() to something else, make sure to change the
@@ -21,6 +22,11 @@ int main(void) {
         fb_ptr[i * framebuffer->width + i] = /*i * 0x10000 + */i * 0x100 + i;
     }
 
+    ata_init();
+
+    // com1 test
+    com_print(COM1, "Hello world!");
+
     // We're done, just hang...
-    abort();
+    exit();
 }

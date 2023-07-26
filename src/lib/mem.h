@@ -1,11 +1,22 @@
 // https://github.com/limine-bootloader/limine-barebones/blob/trunk/kernel/kernel.c
-// TODO: split into mem.c and mem.h
+// TODO: move to proper place
 
 #ifndef MEM_H_
 #define MEM_H_
 
+// crutch
+
 #include <stddef.h>
+
+void* memcpy(void* dest, const void* src, size_t n);
+void* memset(void* s, int c, size_t n);
+void* memmove(void* dest, const void* src, size_t n);
+int memcmp(const void* s1, const void* s2, size_t n);
+void* virtual2phys(void* virtual_addr);
+
 #include <stdint.h>
+#include <stdlib.h>
+#include <mdos.h>
 
 // GCC and Clang reserve the right to generate calls to the following
 // 4 functions even if they are not directly called.
@@ -62,6 +73,14 @@ int memcmp(const void *s1, const void *s2, size_t n) {
     }
 
     return 0;
+}
+
+// https://github.com/szhou42/osdev/blob/master/src/include/paging.h
+// TODO: implement paging
+
+#define LOAD_MEMORY_ADDRESS 0xC0000000
+void* virtual2phys(void * virtual_addr) {
+    return (void*)(virtual_addr - LOAD_MEMORY_ADDRESS);
 }
 
 #endif

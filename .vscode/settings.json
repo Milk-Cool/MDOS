@@ -1,6 +1,7 @@
 {
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
-        "limine.h": "c"
+        "limine.h": "c",
+        "ata.h": "c"
     }
 }

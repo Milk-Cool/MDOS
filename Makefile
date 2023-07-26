@@ -47,7 +47,9 @@ src/%.o: src/%.s
 	nasm -f elf64 $< -o $@
 src/%.o: src/%.c
 	gcc -m64 -fno-builtin -fno-stack-protector \
-		-Wall -Wextra -Werror -Isrc/lib/ -Isrc/drivers/ -c $< -o $@
+		-Wall -Wextra -Werror \
+		-Isrc/lib/ -Isrc/drivers/ -Isrc/data_types/ \
+		-c $< -o $@
 
 clean:
 	rm -rf $(OBJECTS) $(ISOFILE) $(KERNELFILE) limine/ $(RESDEST)$(RESSRC)

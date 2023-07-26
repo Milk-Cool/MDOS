@@ -8,5 +8,6 @@
 typedef uint64_t size_t;
 typedef uint16_t wchar_t;
 typedef uint64_t ptrdiff_t;
+typedef int register_t;
 
 #endif
