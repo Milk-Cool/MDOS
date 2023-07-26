@@ -23,7 +23,7 @@ install-dependencies:
 
 all: $(ISOFILE)
 run: $(ISOFILE)
-	qemu-system-x86_64 -cdrom $(ISOFILE) -D qemu.log
+	qemu-system-x86_64 -cdrom $(ISOFILE) -d int -M smm=off
 $(ISOFILE): $(LIMINE_PATH_BIOS) $(LIMINE_PATH_UEFI) $(LIMINE_PATH_BIOSSYS) $(KERNELFILE) $(RESSRC)
 	cp -R $(RESSRC) $(RESDEST)
 	xorriso -as mkisofs -b $(LIMINE_PATH_RELATIVE_BIOS) \
