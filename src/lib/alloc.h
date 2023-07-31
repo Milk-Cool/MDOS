@@ -1,11 +1,11 @@
+#ifndef ALLOC_H_
+#define ALLOC_H_
+
 #include <errno.h>
 #include <mem.h>
 #include <assert.h>
 
 #define MEMORY_CAPACITY 65536
-
-void* memset(void* s, int c, size_t n);
-void* memcpy(void* dest, const void* src, size_t n);
 
 struct block_meta {
   size_t size;
@@ -15,6 +15,16 @@ struct block_meta {
 };
 
 #define META_SIZE sizeof(struct block_meta)
+
+void *sbrk(int increment);
+struct block_meta *find_free_block(struct block_meta **last, size_t size);
+struct block_meta *request_space(struct block_meta* last, size_t size);
+void *malloc(size_t size);
+struct block_meta *get_block_ptr(void *ptr);
+void free(void *ptr);
+void* realloc(void* ptr, size_t newsize);
+void *kcalloc(uint32_t num, uint32_t size);
+void kfree(void * ptr);
 
 void *sbrk(int increment)
 {
@@ -129,3 +139,5 @@ void *kcalloc(uint32_t num, uint32_t size) {
 void kfree(void * ptr) {
     free(ptr);
 }
+
+#endif

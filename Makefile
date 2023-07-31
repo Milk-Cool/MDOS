@@ -48,7 +48,7 @@ src/%.o: src/%.s
 src/%.o: src/%.c
 	gcc -m64 -fno-builtin -fno-stack-protector \
 		-Wall -Wextra -Werror \
-		-Isrc/lib/ -Isrc/drivers/ -Isrc/data_types/ \
+		-Isrc/lib/ -Isrc/drivers/ -Isrc/data_types/ -Isrc/misc/ \
 		-c $< -o $@
 
 clean:

@@ -1,3 +1,6 @@
+#ifndef ERRNO_H_
+#define ERRNO_H_
+
 int errno;
 
 #define E2BIG 7
@@ -82,3 +85,5 @@ int errno;
 #define ETIMEDOUT 138
 #define ETXTBSY 139
 #define EWOULDBLOCK 140
+
+#endif

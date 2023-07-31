@@ -2,6 +2,7 @@
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
         "limine.h": "c",
-        "ata.h": "c"
+        "ata.h": "c",
+        "isr.h": "c"
     }
 }
